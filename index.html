@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
-	<link rel="stylesheet" href="css/main.css"/>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+	<link rel="stylesheet" href="css/main.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
 	<title>ToDo List</title>
 	<script defer src="js/main.js"></script>
 </head>
+
 <body>
 
 	<div class="container">
@@ -44,21 +47,28 @@
 		<!-- //List of tasks -->
 
 		<!-- Form -->
-		<div class="card bg-light" >
+		<div class="card bg-light">
 			<div class="card-header">Add a new task</div>
 			<div class="card-body">
 				<form id="form">
 					<div class="form-group">
 						<input type="text" class="form-control" id="taskInput" placeholder="Text of the task" required>
-						<small id="emailHelp" class="form-text text-muted">What we do, how much time we spend, what results we get.</small>
+						<small id="emailHelp" class="form-text text-muted">What we do, how much time we spend, what
+							results we get.</small>
 					</div>
-					<button type="submit" class="btn btn-primary  btn-lg active">Add</button>
+					<div class="btns__container">
+						<button type="submit" class="btn btn-primary btn-lg active">Add</button>
+						<button type="button" onclick=changeLanguage(event) class="btn btn-primary btn-lg">UA</button>
+					</div>
 				</form>
 			</div>
 		</div>
-		<!-- //Form  -->
-		<!-- <button id="removeDoneTasks" class="btn btn-secondary mt-4 float-right">Удалить выполненные задачи</button> -->
+
+
+
+
 
 	</div>
 </body>
+
 </html>

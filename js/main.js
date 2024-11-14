@@ -6,10 +6,10 @@ const emptyList = document.getElementById('emptyList');
 let tasks = [];
 
 
-if(localStorage.getItem('tasks')){
+if (localStorage.getItem('tasks')) {
     tasks = JSON.parse(localStorage.getItem('tasks'));
     console.log(tasks);
-    
+
 }
 
 tasks.forEach((task) => {
@@ -17,7 +17,7 @@ tasks.forEach((task) => {
 });
 
 
-checkEmptyList()
+checkEmptyList();
 form.addEventListener('submit', addTask);
 
 
@@ -27,7 +27,7 @@ tasksList.addEventListener('click', doneTask);
 
 function addTask(e) {
     e.preventDefault();
-     
+
     const taskText = taskInput.value;
 
     const newTask = {
@@ -44,12 +44,12 @@ function addTask(e) {
     checkEmptyList()
 }
 
-function deleteTask(e){
+function deleteTask(e) {
 
-    if(e.target.dataset.action !== 'delete'){
+    if (e.target.dataset.action !== 'delete') {
         return;
     }
-    
+
     const parrentNode = e.target.closest('.list-group-item');
     parrentNode.remove();
 
@@ -61,8 +61,8 @@ function deleteTask(e){
     checkEmptyList();
 }
 
-function doneTask (e){
-    if(e.target.dataset.action !== 'done'){
+function doneTask(e) {
+    if (e.target.dataset.action !== 'done') {
         return;
     }
     const parrentNode = e.target.closest('.list-group-item');
@@ -76,8 +76,8 @@ function doneTask (e){
     saveToLocalStorage();
 }
 
-function checkEmptyList(){
-    if(tasks.length === 0){
+function checkEmptyList() {
+    if (tasks.length === 0) {
         const emptyListEl = `<li id="emptyList" class="list-group-item empty-list">
 					<img src="./img/clean.svg" alt="Empty" width="48" class="mt-3">
 					<div class="empty-list__title">The to-do list is empty</div>
@@ -86,19 +86,19 @@ function checkEmptyList(){
         tasksList.insertAdjacentHTML('afterbegin', emptyListEl);
     }
 
-    if(tasks.length > 0){
+    if (tasks.length > 0) {
         const emptyListEl = document.querySelector('#emptyList');
         emptyListEl ? emptyListEl.remove() : null;
     }
 }
 
-function saveToLocalStorage(){
+function saveToLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-function renderTask(task){
+function renderTask(task) {
     const cssClass = task.done ? 'task-title task-title--done' : 'task-title';
-    
+
     const taskHTML = `<li id = "${task.id}"class="list-group-item d-flex justify-content-between task-item">
                      <span class="${cssClass}">${task.text}</span>
                      <div class="task-item__buttons">
@@ -110,6 +110,16 @@ function renderTask(task){
                          </button>
                      </div>
                  </li>`
- 
-     tasksList.insertAdjacentHTML('beforeend', taskHTML);
+
+    tasksList.insertAdjacentHTML('beforeend', taskHTML);
 }
+
+function changeLanguage(event) {
+    event.preventDefault(); // Prevent any form submission or default behavior
+    window.location.href = 'index_ua.html'; // Redirect to the UA version
+}
+function changeLanguageEN(event) {
+    event.preventDefault(); // Prevent any form submission or default behavior
+    window.location.href = 'index.html'; // Redirect to the UA version
+}
+
